@@ -22,10 +22,12 @@ import EmployeesLayout from '../pages/employee/EmployeesLayout';
 import CreateEmployee from '../pages/employee/CreateEmployee';
 import EmployeeDetail from '../pages/employee/EmployeeDetail';
 import EmployeeLeave from '../pages/employee/EmployeeLeave';
+import Login from '../pages/auth/Login';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
+      <Route path="/" element={<Login />} />
       <Route element={<DashboardLayout />}>
         {/* Dashboard */}
         <Route path="/dashboard" element={<Dashboard />}>
