@@ -1,0 +1,64 @@
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+} from 'react-router-dom';
+import DashboardLayout from '../components/layout/DashboardLayout';
+import Dashboard from '../pages/dashboard/Dashboard';
+import Vacancy from '../pages/vacancy/Vacancy';
+import Applicant from '../pages/applicant/Applicant';
+import Employee from '../pages/employee/Employee';
+import Calendar from '../pages/calendar/Calendar';
+import Payroll from '../pages/payroll/Payroll';
+import Overview from '../components/ui/dashboard/Overview';
+import Analytics from '../components/ui/dashboard/Analytics';
+import Reports from '../components/ui/dashboard/Reports';
+import CreateVacancy from '../pages/vacancy/CreateVacancy';
+import VacancyDetail from '../pages/vacancy/VacancyDetail';
+import VacancyList from '../pages/vacancy/VacancyList';
+
+import VacanciesLayout from '../pages/vacancy/VacanciesLayout';
+import EmployeesLayout from '../pages/employee/EmployeesLayout';
+import CreateEmployee from '../pages/employee/CreateEmployee';
+import EmployeeDetail from '../pages/employee/EmployeeDetail';
+import EmployeeLeave from '../pages/employee/EmployeeLeave';
+
+export const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route>
+      <Route element={<DashboardLayout />}>
+        {/* Dashboard */}
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route index element={<Overview />} />
+          <Route path="analytics" element={<Analytics />} />
+          <Route path="reports" element={<Reports />} />
+        </Route>
+
+        {/* Vacancy */}
+        <Route path="/vacancies" element={<VacanciesLayout />}>
+          <Route index element={<Vacancy />} />
+          <Route path="create" element={<CreateVacancy />} />
+          <Route path="detail" element={<VacancyDetail />} />
+          <Route path="list" element={<VacancyList />} />
+        </Route>
+
+        {/* Application */}
+        <Route path="/applicants" element={<Applicant />} />
+
+        {/* Employee */}
+        <Route path="/employees" element={<EmployeesLayout />}>
+          <Route index element={<Employee />} />
+          <Route path="create" element={<CreateEmployee />} />
+          <Route path="detail" element={<EmployeeDetail />} />
+          <Route path="leaves" element={<EmployeeLeave />} />
+        </Route>
+
+        {/* Payroll */}
+        <Route path="/payroll" element={<Payroll />} />
+
+        {/* Calendar */}
+        <Route path="/calendar" element={<Calendar />} />
+      </Route>
+    </Route>
+  )
+);
