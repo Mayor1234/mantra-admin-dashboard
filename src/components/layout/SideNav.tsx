@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { sidebarNavMenu } from '../../constants/indext';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { IoMdArrowDropright } from 'react-icons/io';
 import logo from '../../assets/logo/mantra_logo.png';
 import { MdPowerSettingsNew } from 'react-icons/md';
@@ -131,13 +131,15 @@ const SideNav: React.FC<SideNavProps> = ({ isSidebarOpen }) => {
           </nav>
         </div>
 
-        <button
-          type="button"
-          className="w-full text-[#fff] flex items-center gap-5 px-3 py-1.5 font-libre tracking-wide text-base rounded-3xl hover:bg-active hover:text-dark transition-all duration-300 ease-linear cursor-pointer"
-        >
-          <MdPowerSettingsNew size={20} />
-          Log out
-        </button>
+        <Link to={'/'} className="w-full">
+          <button
+            type="button"
+            className="w-full text-[#fff] flex items-center gap-5 px-3 py-1.5 font-libre tracking-wide text-base rounded-3xl hover:bg-active hover:text-dark transition-all duration-300 ease-linear cursor-pointer"
+          >
+            <MdPowerSettingsNew size={20} />
+            Log out
+          </button>
+        </Link>
       </div>
     </aside>
   );

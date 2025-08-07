@@ -62,7 +62,7 @@ export const FormInput = <T extends FieldValues>({
               placeholder={placeholder}
               autoComplete="off"
               className={cn(
-                'w-full px-3 py-2 text-[#343942] font-mulish text-sm border border-border rounded-xl h-[2.5rem] focus:outline-none focus:ring focus:ring-active focus:border-active',
+                'w-full px-3 py-2 text-[#343942] font-mulish text-sm border border-border rounded-xl h-[2.5rem] transition-all duration-300 ease-linear focus:outline-none focus:ring focus:ring-active focus:border-active',
                 iconLeft ? 'pl-10' : '',
                 error && 'border-red-500',
                 className

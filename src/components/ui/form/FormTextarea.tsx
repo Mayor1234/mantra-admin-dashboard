@@ -52,7 +52,7 @@ const FormTextarea = <T extends FieldValues>({
             rows={rows}
             placeholder={placeholder}
             className={cn(
-              'w-full px-3 py-2 border border-border font-mulish text-sm rounded-xl focus:outline-none focus:ring focus:ring-active focus:border-active resize-none',
+              'w-full px-3 py-2 border border-border font-mulish text-sm rounded-xl transition-all duration-300 ease-linear focus:outline-none focus:ring focus:ring-active focus:border-active resize-none',
               error && 'border-red-500',
               className
             )}

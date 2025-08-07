@@ -19,7 +19,7 @@ const Login = () => {
               <input
                 id="email"
                 autoFocus
-                className="bg-gray-50 border border-gray-300 text-sm rounded-sm block w-full p-2.5 focus:outline-none focus:border-nude4 focus:ring-1 focus:ring-pry"
+                className="bg-gray-50 border border-gray-300 text-sm rounded-sm block w-full p-2.5 focus:outline-none focus:border-nude4 focus:ring-1 focus:ring-pry transition-all duration-300 ease-linear"
               />
             </div>
             <div>
@@ -32,7 +32,7 @@ const Login = () => {
               <input
                 type="password"
                 id="password"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm  block w-full p-2.5 focus:outline-none focus:border-nude4 focus:ring-1 focus:ring-pry"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm block w-full p-2.5 focus:outline-none focus:border-nude4 focus:ring-1 focus:ring-pry transition-all duration-300 ease-linear"
               />
             </div>
             <div className="flex justify-between text-xs text-pry">

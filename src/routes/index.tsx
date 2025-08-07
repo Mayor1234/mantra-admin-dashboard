@@ -28,6 +28,7 @@ export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<Login />} />
+      <Route path="/create-pub-employee" element={<CreateEmployee />} />
       <Route element={<DashboardLayout />}>
         {/* Dashboard */}
         <Route path="/dashboard" element={<Dashboard />}>
