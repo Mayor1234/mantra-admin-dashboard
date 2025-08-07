@@ -23,12 +23,14 @@ import CreateEmployee from '../pages/employee/CreateEmployee';
 import EmployeeDetail from '../pages/employee/EmployeeDetail';
 import EmployeeLeave from '../pages/employee/EmployeeLeave';
 import Login from '../pages/auth/Login';
+import NotFound from '../pages/not-found/NotFound';
+import PublicEmployeeForm from '../pages/employee/PublicEmployeeForm';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<Login />} />
-      <Route path="/create-pub-employee" element={<CreateEmployee />} />
+      <Route path="create-pub-employee" element={<PublicEmployeeForm />} />
       <Route element={<DashboardLayout />}>
         {/* Dashboard */}
         <Route path="/dashboard" element={<Dashboard />}>
@@ -62,6 +64,7 @@ export const router = createBrowserRouter(
         {/* Calendar */}
         <Route path="/calendar" element={<Calendar />} />
       </Route>
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );
