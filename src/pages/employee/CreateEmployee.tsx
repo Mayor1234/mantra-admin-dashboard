@@ -1,11 +1,13 @@
 import { useForm, FormProvider } from 'react-hook-form';
 import { Button } from '../../components/ui/button/Button';
 import { MdOutlineClose, MdSave, MdShare } from 'react-icons/md';
+import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
 import { GoPlus } from 'react-icons/go';
 import BasicInformation from '../../components/ui/employee/create-employee/BasicInformation';
 import BankInformation from '../../components/ui/employee/create-employee/BankInformation';
 import Location from '../../components/ui/employee/create-employee/Location';
 import Experience from '../../components/ui/employee/create-employee/Experience';
+import { useState } from 'react';
 
 type CreateEmployyeeValues = {
   fullname?: string;
@@ -25,6 +27,7 @@ type CreateEmployyeeValues = {
 };
 
 const CreateEmployee = () => {
+  const [copiedLink, setCopiedLink] = useState('');
   const methods = useForm<CreateEmployyeeValues>({
     defaultValues: {
       fullname: '',
@@ -46,42 +49,69 @@ const CreateEmployee = () => {
     console.log(data);
   };
 
+  const copyToClipboard = (url: string) => {
+    navigator.clipboard.writeText(url);
+    setCopiedLink(url);
+    setTimeout(() => setCopiedLink(''), 3000);
+  };
+
   return (
     <div>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
           <div className="flex items-center justify-between gap-5 mb-4">
             <h2 className="text-xl text-dark-text font-libre font-semibold">
-              Employees
+              Employee Registration
             </h2>
-            <div className="flex items-center gap-2">
-              <Button
-                variant="secondary"
-                size="sm"
-                leftIcon={<MdShare size={16} />}
-                className="font-mulish text-sm font-normal py-2 rounded-full mr-2"
-              >
-                Share
-              </Button>
-              <Button
-                variant="secondary"
-                size="sm"
-                leftIcon={<MdOutlineClose size={16} />}
-                className="font-mulish text-sm font-normal py-2 rounded-full mr-2"
-              >
-                Cancel
-              </Button>
+            <div className="relative">
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  leftIcon={<MdShare size={16} />}
+                  className="font-mulish text-sm font-normal py-2 rounded-full mr-2"
+                  onClick={() =>
+                    copyToClipboard(
+                      'https://mantra-admin-dashboard.vercel.app/shareable-employee-form'
+                    )
+                  }
+                >
+                  Share
+                </Button>
 
-              <Button
-                type="submit"
-                // onClick={methods.handleSubmit(onSubmit)}
-                variant="primary"
-                size="sm"
-                leftIcon={<MdSave size={16} />}
-                className="font-mulish text-sm font-normal py-2 rounded-full"
-              >
-                Save
-              </Button>
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  leftIcon={<MdOutlineClose size={16} />}
+                  className="font-mulish text-sm font-normal py-2 rounded-full mr-2"
+                >
+                  Cancel
+                </Button>
+
+                <Button
+                  type="submit"
+                  // onClick={methods.handleSubmit(onSubmit)}
+                  variant="primary"
+                  size="sm"
+                  leftIcon={<MdSave size={16} />}
+                  className="font-mulish text-sm font-normal py-2 rounded-full"
+                >
+                  Save
+                </Button>
+              </div>
+              {copiedLink && (
+                <div className=" absolute z-50 mt-2 p-4 bg-green-50 border border-green-200 rounded-lg">
+                  <div className="flex items-center gap-2 text-green-700">
+                    <IoMdCheckmarkCircleOutline size={16} />
+                    <span className="font-medium">
+                      Link copied to clipboard!
+                    </span>
+                  </div>
+                  <div className="mt-2 text-sm text-green-600 break-all">
+                    {copiedLink}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
           <div className="grid w-full h-full grid-cols-[repeat(2,minmax(100px,1fr))] grid-rows-[repeat(5,minmax(120px,auto))] auto-cols-[minmax(200px,auto)] auto-rows-[minmax(100px,auto)] gap-2.5 [grid-auto-flow:dense]">
