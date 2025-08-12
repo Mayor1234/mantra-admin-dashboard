@@ -1,6 +1,6 @@
 import CreateEmployee from './CreateEmployee';
 
-const PublicEmployeeForm = () => {
+const ShareableEmployeeForm = () => {
   return (
     <div className="container mx-auto my-10">
       <CreateEmployee />
@@ -8,4 +8,4 @@ const PublicEmployeeForm = () => {
   );
 };
 
-export default PublicEmployeeForm;
+export default ShareableEmployeeForm;

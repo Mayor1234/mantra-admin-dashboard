@@ -22,15 +22,18 @@ import EmployeesLayout from '../pages/employee/EmployeesLayout';
 import CreateEmployee from '../pages/employee/CreateEmployee';
 import EmployeeDetail from '../pages/employee/EmployeeDetail';
 import EmployeeLeave from '../pages/employee/EmployeeLeave';
+import ShareableEmployeeForm from '../pages/employee/ShareableEmployeeForm';
 import Login from '../pages/auth/Login';
 import NotFound from '../pages/not-found/NotFound';
-import PublicEmployeeForm from '../pages/employee/PublicEmployeeForm';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<Login />} />
-      <Route path="/create-pub-employee" element={<PublicEmployeeForm />} />
+      <Route
+        path="/shareable-employee-form"
+        element={<ShareableEmployeeForm />}
+      />
       <Route element={<DashboardLayout />}>
         {/* Dashboard */}
         <Route path="/dashboard" element={<Dashboard />}>
@@ -43,9 +46,9 @@ export const router = createBrowserRouter(
         <Route path="/vacancies" element={<VacanciesLayout />}>
           <Route index element={<Vacancy />} />
           <Route path="create" element={<CreateVacancy />} />
-          <Route path="detail" element={<VacancyDetail />} />
           <Route path="list" element={<VacancyList />} />
         </Route>
+        <Route path="/vacancies/:id" element={<VacancyDetail />} />
 
         {/* Application */}
         <Route path="/applicants" element={<Applicant />} />
@@ -54,9 +57,9 @@ export const router = createBrowserRouter(
         <Route path="/employees" element={<EmployeesLayout />}>
           <Route index element={<Employee />} />
           <Route path="create" element={<CreateEmployee />} />
-          <Route path="detail" element={<EmployeeDetail />} />
           <Route path="leaves" element={<EmployeeLeave />} />
         </Route>
+        <Route path="/employees/:id" element={<EmployeeDetail />} />
 
         {/* Payroll */}
         <Route path="/payroll" element={<Payroll />} />

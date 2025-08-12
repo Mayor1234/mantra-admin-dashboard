@@ -1,6 +1,6 @@
 import { useForm, FormProvider } from 'react-hook-form';
 import { Button } from '../../components/ui/button/Button';
-import { MdOutlineClose, MdSave } from 'react-icons/md';
+import { MdOutlineClose, MdSave, MdShare } from 'react-icons/md';
 import { GoPlus } from 'react-icons/go';
 import BasicInformation from '../../components/ui/employee/create-employee/BasicInformation';
 import BankInformation from '../../components/ui/employee/create-employee/BankInformation';
@@ -58,11 +58,20 @@ const CreateEmployee = () => {
               <Button
                 variant="secondary"
                 size="sm"
+                leftIcon={<MdShare size={16} />}
+                className="font-mulish text-sm font-normal py-2 rounded-full mr-2"
+              >
+                Share
+              </Button>
+              <Button
+                variant="secondary"
+                size="sm"
                 leftIcon={<MdOutlineClose size={16} />}
                 className="font-mulish text-sm font-normal py-2 rounded-full mr-2"
               >
                 Cancel
               </Button>
+
               <Button
                 type="submit"
                 // onClick={methods.handleSubmit(onSubmit)}

@@ -1,8 +1,13 @@
 import { MdEmail } from 'react-icons/md';
 import user from '../../../../assets/logo/user.png';
 import { FaCalendar } from 'react-icons/fa';
+import type { Employee } from '../../../../constants/indext';
 
-const EmployeeCard = () => {
+type EmployeeCardType = {
+  employee: Employee;
+};
+
+const EmployeeCard: React.FC<EmployeeCardType> = ({ employee }) => {
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-center gap-3 mb-3">
@@ -15,13 +20,13 @@ const EmployeeCard = () => {
         </div>
         <div className="flex-2">
           <p className="text-dark font-libre font-semibold text-xl mb-1">
-            Aniedi Sunday
+            {employee.name}
           </p>
           <button
             type="button"
             className="bg-[#FAAB3C] text-dark text-sm font-libre font-medium rounded-2xl px-3 py-1"
           >
-            Data Analyst
+            {employee.position}
           </button>
         </div>
       </div>
@@ -31,7 +36,7 @@ const EmployeeCard = () => {
             Department
           </p>
           <div className="capitalize font-libre font-medium text-sm text-dark">
-            sales & marketing
+            {employee.department}
           </div>
         </div>
         <div>
@@ -39,7 +44,7 @@ const EmployeeCard = () => {
             Date of Joining
           </p>
           <div className="capitalize font-libre font-medium text-sm text-dark">
-            jan 12, 2020
+            {employee.joiningDate}
           </div>
         </div>
       </div>
@@ -47,12 +52,13 @@ const EmployeeCard = () => {
         <div className="space-y-2">
           <p className="flex items-center gap-2">
             <MdEmail size={14} className="text-icon" />
-            o.williams@gmail.com
+            {employee.department}
           </p>
           <hr className="text-border" />
           <p className="flex items-center gap-2">
             <FaCalendar size={12} className="text-icon" />
-            12, April 2020
+
+            {employee.joiningDate}
           </p>
         </div>
       </div>

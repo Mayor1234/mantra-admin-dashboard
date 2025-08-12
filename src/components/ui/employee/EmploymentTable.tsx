@@ -6,19 +6,7 @@ import { formatStatusColor } from '../../../shared/helper/formatStatus';
 import Pagination from '../pagination/Pagination';
 import { FormProvider, useForm, useWatch } from 'react-hook-form';
 import { FormCheckbox } from '../form';
-
-// import { FormCheckbox } from '../form';
-
-type DataType = {
-  id: number;
-  name: string;
-  position: string;
-  department: string;
-  status: 'ACTIVE' | 'REMOTE' | 'ON LEAVE' | 'RESIGNED' | 'TERMINATED';
-  joiningDate: string;
-  email: string;
-  phone: string;
-};
+import { employees, type Employee } from '../../../constants/indext';
 
 type TableColumn<T> = {
   key: keyof T;
@@ -29,89 +17,6 @@ type TableColumn<T> = {
 type FormValues = {
   selectedPositions: Record<string, boolean>;
 };
-
-const employees: DataType[] = [
-  {
-    id: 1,
-    name: 'Joseph Idoko',
-    position: 'GM Operations',
-    department: 'Operations',
-    status: 'ACTIVE',
-    joiningDate: 'Sep,12 2023',
-    email: 'kate.towne@example.com',
-    phone: '(123) 456-7890',
-  },
-  {
-    id: 2,
-    name: 'Onyeka Onye',
-    position: 'Fleet Managae',
-    department: 'Sales & Marketing',
-    status: 'REMOTE',
-    joiningDate: 'Aug,2 2023',
-    email: 'wiza1234@example.com',
-    phone: '(555) 123-4567',
-  },
-  {
-    id: 3,
-    name: 'Stella Okoh',
-    position: 'GM Finance',
-    department: 'Finance',
-    status: 'RESIGNED',
-    joiningDate: 'Jul,12 2023',
-    email: 'rifison-leo@example.com',
-    phone: '(789) 012-3456',
-  },
-  {
-    id: 4,
-    name: 'Abiola Arinde',
-    position: 'Finance',
-    department: 'Technical',
-    status: 'ON LEAVE',
-    joiningDate: 'Apr.5 2023',
-    email: 'bitsfor-z@example.com',
-    phone: '(123) 456-7890',
-  },
-  {
-    id: 5,
-    name: 'Kingsley Ossai',
-    position: 'Guards Operations',
-    department: 'Development',
-    status: 'ACTIVE',
-    joiningDate: 'Feb,11 2023',
-    email: 'tristionbode@example.com',
-    phone: '(888) 555-7890',
-  },
-  {
-    id: 6,
-    name: 'Kayode Idowu',
-    position: 'Finance',
-    department: 'Department',
-    status: 'ACTIVE',
-    joiningDate: 'Jan,29 2023',
-    email: 'graham-rfc@example.com',
-    phone: '(123) 554-7612',
-  },
-  {
-    id: 7,
-    name: 'Edikan Williw',
-    position: 'Business Develop.',
-    department: 'Analytics & Data',
-    status: 'REMOTE',
-    joiningDate: 'Nov,18 2022',
-    email: 'ann.jastexample.com',
-    phone: '(888) 324-5678',
-  },
-  {
-    id: 8,
-    name: 'James Edoh',
-    position: 'Security Coordinator',
-    department: 'Sales & Marketing',
-    status: 'TERMINATED',
-    joiningDate: 'Jan,10 2022',
-    email: 'towne220@example.com',
-    phone: '(143) 453-8733',
-  },
-];
 
 const EmploymentTable = () => {
   const methods = useForm<FormValues>({
@@ -128,7 +33,7 @@ const EmploymentTable = () => {
 
   const { control, setValue } = methods;
   const selectedPositions = useWatch({ control, name: 'selectedPositions' });
-  console.log(selectedPositions);
+  // console.log(selectedPositions);
 
   // Handle select all/deselect all checkbox
   const handleSelectAll = (checked: boolean) => {
@@ -147,7 +52,7 @@ const EmploymentTable = () => {
   // Check if some (but not all) rows are selected
   const indeterminate =
     !allSelected && employees.some((item) => selectedPositions[item.id]);
-  const columns: TableColumn<DataType>[] = [
+  const columns: TableColumn<Employee>[] = [
     {
       key: 'name',
       label: (
@@ -166,14 +71,16 @@ const EmploymentTable = () => {
           <span>Name</span>
         </div>
       ),
-      render: (value, row: DataType) => (
+      render: (value, row) => (
         <div className="flex items-center gap-3">
           <FormCheckbox<FormValues>
             name={`selectedPositions.${row.id}`}
             control={methods.control}
           />
           <div className="w-8 h-8 bg-[#D8D8D8] border border-[#979797] rounded-full" />
-          <span className="text-dark-text font-medium font-libre">{value}</span>
+          <span className="text-dark-text font-medium font-libre">
+            {value as string}
+          </span>
         </div>
       ),
     },
@@ -182,7 +89,7 @@ const EmploymentTable = () => {
       label: 'Position',
       render: (value) => (
         <span className="text-dark text-sm font-medium font-libre ">
-          {value}
+          {value as string}
         </span>
       ),
     },
@@ -191,7 +98,7 @@ const EmploymentTable = () => {
       label: 'Department',
       render: (value) => (
         <span className="text-dark font-medium font-libre text-sm">
-          {value}
+          {value as string}
         </span>
       ),
     },
@@ -204,7 +111,7 @@ const EmploymentTable = () => {
             typeof value === 'string' ? value.toLowerCase() : ''
           } ${formatStatusColor(value as string)} text-xs`}
         >
-          {value}
+          {value as string}
         </span>
       ),
     },
@@ -213,7 +120,7 @@ const EmploymentTable = () => {
       label: 'Joining Date',
       render: (value) => (
         <span className="text-dark font-medium font-libre text-sm">
-          {value}
+          {value as string}
         </span>
       ),
     },
@@ -223,7 +130,9 @@ const EmploymentTable = () => {
       render: (value) => (
         <div className="flex items-center gap-2">
           <MdEmail className="text-icon" />
-          <p className="text-dark font-medium font-libre text-sm">{value}</p>
+          <p className="text-dark font-medium font-libre text-sm">
+            {value as string}
+          </p>
         </div>
       ),
     },
@@ -235,7 +144,7 @@ const EmploymentTable = () => {
           <div className="flex items-center gap-2">
             <FaPhoneAlt className="text-icon" />
             <span className="text-dark font-medium font-libre text-sm">
-              {value}
+              {value as string}
             </span>
           </div>
           <div className="flex flex-col gap-[3px]">
@@ -254,7 +163,7 @@ const EmploymentTable = () => {
   return (
     <FormProvider {...methods}>
       <div className="border border-border p-3 rounded-2xl">
-        <Table<DataType> data={employees} columns={columns} />
+        <Table data={employees} columns={columns} />
         <Pagination />
       </div>
     </FormProvider>

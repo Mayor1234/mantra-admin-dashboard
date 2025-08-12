@@ -53,7 +53,7 @@ const SideNav: React.FC<SideNavProps> = ({ isSidebarOpen }) => {
                     key={i}
                     to={link.path}
                     className={() =>
-                      `flex items-center gap-5 px-3 py-1.5 font-libre tracking-wide text-base rounded-3xl hover:bg-active/50 hover:text-dark transition-all duration-300 ease-linear cursor-pointer" ${
+                      `flex items-center gap-5 px-3 py-1.5 font-libre tracking-wide text-base rounded-3xl hover:bg-active/70 hover:text-dark transition-all duration-300 ease-linear cursor-pointer" ${
                         isActivePath(link.path)
                           ? 'bg-active text-dark transition-all duration-300 ease-linear hover:text-gray-700'
                           : ''
@@ -71,7 +71,7 @@ const SideNav: React.FC<SideNavProps> = ({ isSidebarOpen }) => {
                   <NavLink
                     to={link.path}
                     className={({ isActive }) =>
-                      `flex items-center gap-5 px-3 py-1.5 font-libre tracking-wide text-base rounded-3xl hover:bg-active/50 hover:text-dark transition-all duration-300 ease-linear cursor-pointer" ${
+                      `flex items-center gap-5 px-3 py-1.5 font-libre tracking-wide text-base rounded-3xl hover:bg-active/70 hover:text-dark transition-all duration-300 ease-linear cursor-pointer" ${
                         isActive
                           ? 'bg-active text-dark transition-all duration-300 ease-linear hover:bg-pry-hover hover:text-gray-700'
                           : ''
@@ -113,7 +113,7 @@ const SideNav: React.FC<SideNavProps> = ({ isSidebarOpen }) => {
                           key={j}
                           to={subItem.path}
                           className={({ isActive }) =>
-                            `flex items-center gap-2 text-base hover:text-active transition-all ${
+                            `flex items-center gap-2 text-base  hover:text-active transition-all ${
                               isActive
                                 ? 'text-active transition-all duration-300 ease-linear hover:bg-pry-hover hover:opacity-70'
                                 : ''

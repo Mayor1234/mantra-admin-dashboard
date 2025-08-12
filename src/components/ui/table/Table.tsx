@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 type TableColumn<T> = {
   key: keyof T;
@@ -18,7 +18,7 @@ function Table<T extends Record<string, any>>({
   data,
   height,
 }: TableProps<T>) {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <div className="w-full overflow-x-auto">
@@ -44,7 +44,7 @@ function Table<T extends Record<string, any>>({
               <tr
                 key={rowIndex}
                 className="border-b border-[#E0E4EA] hover:bg-gray-50 transition-colors cursor-pointer"
-                // onClick={() => navigate(`${row.id}`)}
+                onClick={() => navigate(`${row.id}`)}
               >
                 {columns.map((col, colIndex) => (
                   <td
