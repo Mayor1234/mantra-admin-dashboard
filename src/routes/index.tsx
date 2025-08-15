@@ -25,11 +25,13 @@ import EmployeeLeave from '../pages/employee/EmployeeLeave';
 import ShareableEmployeeForm from '../pages/employee/ShareableEmployeeForm';
 import Login from '../pages/auth/Login';
 import NotFound from '../pages/not-found/NotFound';
+import ForgotPassword from '../pages/auth/ForgotPassword';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<Login />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route
         path="/shareable-employee-form"
         element={<ShareableEmployeeForm />}

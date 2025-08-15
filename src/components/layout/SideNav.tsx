@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { sidebarNavMenu } from '../../constants/indext';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { IoMdArrowDropright } from 'react-icons/io';
-import logo from '../../assets/logo/mantra_logo.png';
+import logo from '../../assets/logo/logo_mantra.png';
 import { MdPowerSettingsNew } from 'react-icons/md';
 
 interface SideNavProps {
@@ -25,25 +25,26 @@ const SideNav: React.FC<SideNavProps> = ({ isSidebarOpen }) => {
 
   return (
     <aside
-      className={`transition-all duration-300 ease-in-out bg-pry text-light shadow-lg h-screen px-5
+      className={`transition-all duration-300 ease-in-out bg-pry text-light shadow-lg h-screen 
           ${isSidebarOpen ? 'w-64' : 'w-16'}
           hidden sm:block`}
     >
       <div className="flex flex-col justify-between items-center h-full pb-10 w-full">
         <div className="w-full">
-          <div className="flex items-center justify-center p-5">
+          <div className="flex items-center justify-center p-5 bg-[#DCE0EA] rounded-bl-3xl mb-13">
             {/* <span className="text-xl font-bold whitespace-nowrap overflow-hidden transition-all">
           {isSidebarOpen ? 'MyApp' : '🧩'}
         </span> */}
             <img
               src={logo}
-              alt=""
+              alt="Mantra logo"
               width={100}
               height={100}
-              className="w-20 h-16"
+              // className="w-20 h-16"
+              className="w-44 h-10"
             />
           </div>
-          <nav className="mt-4 space-y-2">
+          <nav className="mt-4 space-y-2 px-5">
             {sidebarNavMenu.map((link, i) => {
               const isOpen = openSections[link.label];
 
@@ -131,7 +132,7 @@ const SideNav: React.FC<SideNavProps> = ({ isSidebarOpen }) => {
           </nav>
         </div>
 
-        <Link to={'/'} className="w-full">
+        <Link to={'/'} className="w-full px-5">
           <button
             type="button"
             className="w-full text-[#fff] flex items-center gap-5 px-3 py-1.5 font-libre tracking-wide text-base rounded-3xl hover:bg-active hover:text-dark transition-all duration-300 ease-linear cursor-pointer"

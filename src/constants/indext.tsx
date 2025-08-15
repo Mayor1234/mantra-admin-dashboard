@@ -7,7 +7,7 @@ import {
   MdOutlineHome,
   // MdOutlineListAlt,
   MdGroups,
-  MdOutlineListAlt,
+  // MdOutlineListAlt,
 } from 'react-icons/md';
 
 export type Employee = {
@@ -119,11 +119,11 @@ export const sidebarNavMenu = [
     icon: <MdOutlinePeople className="h-5 w-5" />,
   },
 
-  {
-    label: 'Payroll',
-    path: '/payroll',
-    icon: <MdOutlineListAlt className="h-5 w-5" />,
-  },
+  // {
+  //   label: 'Payroll',
+  //   path: '/payroll',
+  //   icon: <MdOutlineListAlt className="h-5 w-5" />,
+  // },
   {
     label: 'Calendar',
     path: '/calendar',

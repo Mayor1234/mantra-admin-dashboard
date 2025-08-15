@@ -2,13 +2,19 @@ import logo from '../../assets/logo/mantra_logo3.png';
 import { useState } from 'react';
 
 import SuccessComponent from '../../components/ui/auth/SuccessComponent';
-import LoginComponent from '../../components/ui/auth/LoginComponent';
-import EmailVerificationComponent from '../../components/ui/auth/EmailVerificationComponent';
 
-type LoginStep = 'credentials' | 'otp-verification' | 'success';
+import ForgotPasswordComponent from '../../components/ui/auth/ForgotPasswordComponent';
+import CreatePassword from '../../components/ui/auth/CreatePassword';
+import ResetPasswordVerification from '../../components/ui/auth/ResetPasswodVerification';
 
-const Login = () => {
-  const [activeScreen, setActiveScreen] = useState<LoginStep>('credentials');
+type ResetStep =
+  | 'credential'
+  | 'otp-verification'
+  | 'create-password'
+  | 'success';
+
+const ForgotPassword = () => {
+  const [activeScreen, setActiveScreen] = useState<ResetStep>('credential');
 
   return (
     <section className="flex items-center justify-center w-screen h-screen">
@@ -37,14 +43,20 @@ const Login = () => {
         </div>
         <div className="bg-[#F6F6F6] w-[40%] p-10 h-full flex items-center">
           <div className="max-w-xl w-[450px] h-[543px] -ml-40 bg-[#fff] rounded-3xl p-10 box-border overflow-hidden md:inset-0 max-h-full inset-x-32 inset-y-32 shadow shadow-gray-200 flex items-center justify-center">
-            {activeScreen === 'credentials' && (
-              <LoginComponent
+            {activeScreen === 'credential' && (
+              <ForgotPasswordComponent
                 activeScreen={activeScreen}
                 setActiveScreen={setActiveScreen}
               />
             )}
             {activeScreen === 'otp-verification' && (
-              <EmailVerificationComponent
+              <ResetPasswordVerification
+                activeScreen={activeScreen}
+                setActiveScreen={setActiveScreen}
+              />
+            )}
+            {activeScreen === 'create-password' && (
+              <CreatePassword
                 activeScreen={activeScreen}
                 setActiveScreen={setActiveScreen}
               />
@@ -57,4 +69,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ForgotPassword;
