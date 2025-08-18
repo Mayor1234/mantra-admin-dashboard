@@ -2,7 +2,7 @@ import { SectionCard } from './SectionCard';
 
 const Skills = () => {
   return (
-    <SectionCard title="Personal Info">
+    <SectionCard title="Skills">
       <div className="flex flex-wrap gap-2">
         {[
           'Project Management',

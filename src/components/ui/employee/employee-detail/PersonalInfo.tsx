@@ -1,4 +1,4 @@
-import type { Employee } from '../../../../constants/indext';
+import type { Employee } from '../../../../constants/index';
 import { SectionCard } from './SectionCard';
 
 type PersonalInfoType = {

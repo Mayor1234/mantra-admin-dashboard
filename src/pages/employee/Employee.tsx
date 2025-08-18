@@ -9,6 +9,7 @@ import { Button } from '../../components/ui/button/Button';
 import { GoPlus } from 'react-icons/go';
 import EmploymentTable from '../../components/ui/employee/EmploymentTable';
 import EmployeeGrid from '../../components/ui/employee/EmployeeGrid';
+import LocationDropdown from '../../components/ui/employee/LocationComponent';
 
 type ViewScreen = 'list' | 'grid';
 
@@ -45,14 +46,15 @@ const Employee = () => {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <Button
+          {/* <Button
             variant="outline"
             size="sm"
             rightIcon={<MdOutlineKeyboardArrowDown size={16} />}
             className="font-mulish text-sm font-normal text-dark-text py-2 rounded-lg"
           >
-            Sort by
-          </Button>
+
+          </Button> */}
+          <LocationDropdown />
           <Button
             variant="outline"
             size="sm"

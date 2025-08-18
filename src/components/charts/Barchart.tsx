@@ -12,60 +12,60 @@ import {
 
 const data = [
   {
-    name: 'Page A',
-    uv: 4000,
-    pv: 8300,
-    amt: 2400,
+    name: '01/09',
+    tradeDepot: 4000,
+    veenocks: 8300,
+    biswal: 2400,
   },
   {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 5100,
+    name: '02/09',
+    tradeDepot: 3000,
+    veenocks: 1398,
+    biswal: 5100,
   },
   {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    name: '03/09',
+    tradeDepot: 2000,
+    veenocks: 9800,
+    biswal: 2290,
   },
   {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 8400,
+    name: '04/09',
+    tradeDepot: 2780,
+    veenocks: 3908,
+    biswal: 8400,
   },
   {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
+    name: '05/09',
+    tradeDepot: 1890,
+    veenocks: 4800,
+    biswal: 2181,
   },
   {
-    name: 'Page F',
-    uv: 6090,
-    pv: 3800,
-    amt: 7300,
+    name: '06/09',
+    tradeDepot: 6090,
+    veenocks: 3800,
+    biswal: 7300,
   },
   {
-    name: 'Page G',
-    uv: 3490,
-    pv: 8700,
-    amt: 5500,
+    name: '08/09',
+    tradeDepot: 3490,
+    veenocks: 8700,
+    biswal: 5500,
   },
 ];
 
 const Barchart = () => {
   return (
     <div className="w-full h-full text-xs">
-      <ResponsiveContainer width="99%" height="80%">
+      <ResponsiveContainer width="99%" height="100%">
         <BarChart
           data={data}
           margin={{
-            top: 20,
-            right: 20,
-            left: 10,
-            bottom: 3,
+            top: 0,
+            right: 0,
+            left: 0,
+            bottom: 0,
           }}
           style={{
             fontFamily: 'Mulish, sans-serif',
@@ -117,14 +117,69 @@ const Barchart = () => {
             labelStyle={{ display: 'none' }}
             cursor={{ fill: 'transparent' }}
           />
-          <Legend iconType="circle" iconSize={8} />
+          <Legend
+            iconType="circle"
+            iconSize={8}
+            wrapperStyle={{
+              paddingTop: '20px',
+              fontSize: '12px',
+              fontFamily: 'Mulish, sans-serif',
+              fontWeight: '500',
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '25px',
+              color: 'black',
+            }}
+            content={(props) => {
+              const { payload } = props;
+              return (
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    gap: '3rem',
+                  }}
+                >
+                  {payload?.map((entry, index) => (
+                    <div
+                      key={index}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '5px',
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: '8px',
+                          height: '8px',
+                          borderRadius: '50%',
+                          backgroundColor: entry.color,
+                        }}
+                      />
+                      <span
+                        style={{
+                          color: 'black',
+                          fontSize: '12px',
+                          fontFamily: 'Mulish, sans-serif',
+                          fontWeight: '500',
+                        }}
+                      >
+                        {entry.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              );
+            }}
+          />
           <Bar
-            dataKey="pv"
+            dataKey="veenocks"
+            name="Veenocks"
             fill="#8884d8"
             activeBar={
               <Rectangle
-                fill="pink"
-                stroke="blue"
+                stroke="purple"
                 strokeWidth="2"
                 radius={[50, 50, 0, 0]}
               />
@@ -133,12 +188,12 @@ const Barchart = () => {
             barSize={10}
           />
           <Bar
-            dataKey="uv"
+            dataKey="tradeDepot"
+            name="Trade Depot"
             fill="#82ca9d"
             activeBar={
               <Rectangle
-                fill="gold"
-                stroke="purple"
+                stroke="green"
                 strokeWidth="2"
                 radius={[50, 50, 0, 0]}
               />
@@ -147,12 +202,12 @@ const Barchart = () => {
             barSize={10}
           />
           <Bar
-            dataKey="amt"
+            dataKey="biswal"
+            name="Biswal"
             fill="#FAAB3C"
             activeBar={
               <Rectangle
-                fill="black"
-                stroke="purple"
+                stroke="orange"
                 strokeWidth="2"
                 radius={[50, 50, 0, 0]}
               />

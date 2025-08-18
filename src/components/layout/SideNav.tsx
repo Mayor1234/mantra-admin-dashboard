@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { sidebarNavMenu } from '../../constants/indext';
+import { sidebarNavMenu } from '../../constants/index';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { IoMdArrowDropright } from 'react-icons/io';
 import logo from '../../assets/logo/logo_mantra.png';

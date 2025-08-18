@@ -3,7 +3,7 @@ import PieCharts from '../../charts/PieCharts';
 import OfficeDistributionChart from '../../charts/ScatterChart';
 import SimpleLineChart from '../../charts/SimpleLineChart';
 import BirthdayWidget from './analytics/BirthdayWidget';
-import { mockUsers } from '../../../constants/indext';
+import { mockUsers } from '../../../constants/index';
 import DatePicker from './analytics/DatePicker';
 import ProgressBar from '../progress-bar/ProgressBar';
 

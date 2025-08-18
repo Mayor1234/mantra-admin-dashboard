@@ -32,8 +32,8 @@ type EmployeeDetails = {
   };
   bankInfo: {
     accountNo: string;
-    fscCode: string;
-    panNo: string;
+    bankName: string;
+    accountName: string;
   };
   experience: {
     title: string;
@@ -178,8 +178,8 @@ export const employees: Employee[] = [
       },
       bankInfo: {
         accountNo: '00123456789012345',
-        fscCode: 'BOA123456789',
-        panNo: 'PAN789012345',
+        bankName: 'BOA123456789',
+        accountName: 'PAN789012345',
       },
       experience: [
         {
@@ -257,8 +257,8 @@ export const employees: Employee[] = [
       },
       bankInfo: {
         accountNo: '00223344556677889',
-        fscCode: 'UBA987654321',
-        panNo: 'PAN123987456',
+        bankName: 'UBA987654321',
+        accountName: 'PAN123987456',
       },
       experience: [
         {
@@ -327,8 +327,8 @@ export const employees: Employee[] = [
       },
       bankInfo: {
         accountNo: '00998877665544332',
-        fscCode: 'GTB112233445',
-        panNo: 'PAN456123789',
+        bankName: 'GTB112233445',
+        accountName: 'PAN456123789',
       },
       experience: [
         {
@@ -388,8 +388,8 @@ export const employees: Employee[] = [
       },
       bankInfo: {
         accountNo: '00554433221100998',
-        fscCode: 'ZEN876543210',
-        panNo: 'PAN987654321',
+        bankName: 'ZEN876543210',
+        accountName: 'PAN987654321',
       },
       experience: [
         {
@@ -439,8 +439,8 @@ export const employees: Employee[] = [
       },
       bankInfo: {
         accountNo: '00112233445566778',
-        fscCode: 'FID567890123',
-        panNo: 'PAN123456789',
+        bankName: 'FID567890123',
+        accountName: 'PAN123456789',
       },
       experience: [
         {
@@ -507,8 +507,8 @@ export const employees: Employee[] = [
       },
       bankInfo: {
         accountNo: '00334455667788990',
-        fscCode: 'SKY123456789',
-        panNo: 'PAN987123456',
+        bankName: 'SKY123456789',
+        accountName: 'PAN987123456',
       },
       experience: [
         {
@@ -559,8 +559,8 @@ export const employees: Employee[] = [
       },
       bankInfo: {
         accountNo: '00776655443322110',
-        fscCode: 'ECO987654321',
-        panNo: 'PAN456789123',
+        bankName: 'ECO987654321',
+        accountName: 'PAN456789123',
       },
       experience: [
         {
@@ -624,8 +624,8 @@ export const employees: Employee[] = [
       },
       bankInfo: {
         accountNo: '00889900112233445',
-        fscCode: 'FCMB123987456',
-        panNo: 'PAN321654987',
+        bankName: 'FCMB123987456',
+        accountName: 'PAN321654987',
       },
       experience: [
         {
@@ -684,8 +684,8 @@ export const employees: Employee[] = [
       },
       bankInfo: {
         accountNo: '00234552976293057',
-        fscCode: 'CC128693311',
-        panNo: '0012998383647383',
+        bankName: 'CC128693311',
+        accountName: '0012998383647383',
       },
       experience: [
         {

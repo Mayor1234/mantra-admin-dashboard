@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { MdNotifications, MdSettings, MdWbSunny } from 'react-icons/md';
+import LanguageDropdown from '../language/Language';
 
 const TimeAndDate = () => {
   const [currentTime, setCurrentTime] = useState<string>(() =>
@@ -51,12 +52,13 @@ const TimeAndDate = () => {
 
         {/* Language Dropdown Placeholder */}
         <div className="flex items-center gap-1">
-          <div className="w-5 h-5 bg-[#D8D8D8] rounded-full"></div>
-          <span className="text-sm">ENG</span>
+          <LanguageDropdown />
         </div>
 
         {/* Time */}
-        <div className="text-sm text-gray-700 font-medium">{currentTime}</div>
+        <div className="text-sm text-gray-700 font-medium w-48">
+          {currentTime}
+        </div>
       </div>
     </div>
   );

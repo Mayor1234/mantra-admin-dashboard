@@ -11,32 +11,32 @@ import {
 
 const data = [
   {
-    department: 'Development',
-    all: 60,
+    department: 'Operations',
+    allEmployees: 60,
     terminated: 10,
     newHires: 10,
   },
   {
-    department: 'Project Management',
-    all: 50,
+    department: 'Admin',
+    allEmployees: 50,
     terminated: 10,
     newHires: 20,
   },
   {
-    department: 'Sales & Marketing',
-    all: 40,
+    department: 'Marketing',
+    allEmployees: 40,
     terminated: 10,
     newHires: 10,
   },
   {
-    department: 'Analytics & Data',
-    all: 60,
+    department: 'Technical Team',
+    allEmployees: 60,
     terminated: 10,
     newHires: 10,
   },
   {
-    department: 'Support',
-    all: 40,
+    department: 'Guards',
+    allEmployees: 40,
     terminated: 10,
     newHires: 10,
   },
@@ -58,7 +58,7 @@ const HorizontalBarChart = () => {
           width={400}
           height={400}
           barCategoryGap="25%"
-          barGap={30}
+          barGap={10}
           style={{
             fontFamily: 'Mulish, sans-serif',
             fontWeight: '500',
@@ -71,7 +71,7 @@ const HorizontalBarChart = () => {
 
           <XAxis
             type="number"
-            domain={[0, 100]}
+            domain={[40, 100]}
             tickFormatter={(v) => `${v}%`}
             width={10}
             tick={{
@@ -119,26 +119,85 @@ const HorizontalBarChart = () => {
             labelStyle={{ display: 'none' }}
             cursor={{ fill: 'transparent' }}
           />
-          <Legend iconType="circle" iconSize={5} />
+          <Legend
+            iconType="circle"
+            iconSize={8}
+            wrapperStyle={{
+              paddingTop: '20px',
+              fontSize: '12px',
+              fontFamily: 'Mulish, sans-serif',
+              fontWeight: '500',
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '25px',
+              color: 'black',
+            }}
+            content={(props) => {
+              const { payload } = props;
+              return (
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    gap: '3rem',
+                    paddingBottom: '10px',
+                  }}
+                >
+                  {payload?.map((entry, index) => (
+                    <div
+                      key={index}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '5px',
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: '8px',
+                          height: '8px',
+                          borderRadius: '50%',
+                          backgroundColor: entry.color,
+                        }}
+                      />
+                      <span
+                        style={{
+                          color: 'black',
+                          fontSize: '12px',
+                          fontFamily: 'Mulish, sans-serif',
+                          fontWeight: '500',
+                        }}
+                      >
+                        {entry.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              );
+            }}
+          />
           <Bar
-            dataKey="all"
+            dataKey="allEmployees"
+            name="All Employee"
             stackId="a"
             fill={colors.all}
-            radius={[0, 50, 50, 0]}
+            radius={[50, 50, 50, 50]}
             barSize={10}
           />
           <Bar
             dataKey="terminated"
+            name="Terminated"
             stackId="a"
             fill={colors.terminated}
-            radius={[0, 50, 50, 0]}
+            radius={[50, 50, 50, 50]}
             barSize={10}
           />
           <Bar
             dataKey="newHires"
+            name="New Hires"
             stackId="a"
             fill={colors.newHires}
-            radius={[0, 50, 50, 0]}
+            radius={[50, 50, 50, 50]}
             barSize={10}
           />
         </BarChart>

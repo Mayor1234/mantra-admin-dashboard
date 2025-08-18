@@ -1,4 +1,4 @@
-import type { Employee } from '../../../../constants/indext';
+import type { Employee } from '../../../../constants/index';
 import { SectionCard } from './SectionCard';
 
 type BankInfoType = {
@@ -15,15 +15,15 @@ const BankInfo: React.FC<BankInfoType> = ({ employee }) => {
           </span>
         </p>
         <p className="flex justify-between items-center font-mulish text-xs w-full border-b border-border pb-2">
-          <span className="uppercase">IFSC CODE</span>
+          <span className="uppercase">bank name</span>
           <span className="text-dark font-libre text-sm font-medium">
-            {employee.details.bankInfo.fscCode}
+            {employee.details.bankInfo.bankName}
           </span>
         </p>
         <p className="flex justify-between items-center font-mulish text-xs w-full pb-2">
-          <span className="uppercase">PAN NO</span>
+          <span className="uppercase">account name</span>
           <span className="text-dark font-libre text-sm font-medium">
-            {employee.details.bankInfo.panNo}
+            {employee.details.bankInfo.accountName}
           </span>
         </p>
       </div>

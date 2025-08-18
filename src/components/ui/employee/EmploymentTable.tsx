@@ -6,7 +6,7 @@ import { formatStatusColor } from '../../../shared/helper/formatStatus';
 import Pagination from '../pagination/Pagination';
 import { FormProvider, useForm, useWatch } from 'react-hook-form';
 import { FormCheckbox } from '../form';
-import { employees, type Employee } from '../../../constants/indext';
+import { employees, type Employee } from '../../../constants/index';
 
 type TableColumn<T> = {
   key: keyof T;

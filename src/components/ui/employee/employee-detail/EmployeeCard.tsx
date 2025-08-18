@@ -1,7 +1,7 @@
 import { MdEmail } from 'react-icons/md';
 import user from '../../../../assets/logo/user.png';
 import { FaCalendar } from 'react-icons/fa';
-import type { Employee } from '../../../../constants/indext';
+import type { Employee } from '../../../../constants/index';
 
 type EmployeeCardType = {
   employee: Employee;
