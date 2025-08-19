@@ -35,12 +35,12 @@ const Experience = () => {
             key={i}
             className="mb-3 border-b border-border pb-3 space-y-3 last:border-none"
           >
-            <div className="flex items-center justify-between">
-              <p className="font-semibold text-base font-libre text-dark">
-                {exp.role}
-              </p>
-              <div className="w-5 h-5 bg-[#969DA6] rounded-lg" />
-            </div>
+            {/* <div className="flex items-center justify-between"> */}
+            <p className="font-semibold text-base font-libre text-dark">
+              {exp.role}
+            </p>
+            {/* <div className="w-5 h-5 bg-[#969DA6] rounded-lg" /> */}
+            {/* </div> */}
             <div className="text-xs text-gray-500 flex justify-between items-center">
               <span className="text-sm font-libre font-medium text-dark">
                 {exp.date}

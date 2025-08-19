@@ -15,7 +15,7 @@ const locations: Location[] = [
 ];
 
 const LocationDropdown = () => {
-  const [isOpen, setIsOpen] = useState(true); // Starting open to match the image
+  const [isOpen, setIsOpen] = useState(false); // Starting open to match the image
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(
     null
   );

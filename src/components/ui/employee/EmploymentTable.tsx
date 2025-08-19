@@ -1,7 +1,6 @@
 import { type ReactNode } from 'react';
 import Table from '../table/Table';
-import { MdEmail } from 'react-icons/md';
-import { FaPhoneAlt } from 'react-icons/fa';
+// import { FaPhoneAlt } from 'react-icons/fa';
 import { formatStatusColor } from '../../../shared/helper/formatStatus';
 import Pagination from '../pagination/Pagination';
 import { FormProvider, useForm, useWatch } from 'react-hook-form';
@@ -129,7 +128,6 @@ const EmploymentTable = () => {
       label: 'Email',
       render: (value) => (
         <div className="flex items-center gap-2">
-          <MdEmail className="text-icon" />
           <p className="text-dark font-medium font-libre text-sm">
             {value as string}
           </p>
@@ -142,7 +140,7 @@ const EmploymentTable = () => {
       render: (value) => (
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-2">
-            <FaPhoneAlt className="text-icon" />
+            {/* <FaPhoneAlt className="text-icon" /> */}
             <span className="text-dark font-medium font-libre text-sm">
               {value as string}
             </span>

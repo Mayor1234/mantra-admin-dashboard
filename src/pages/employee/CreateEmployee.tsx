@@ -1,6 +1,7 @@
 import { useForm, FormProvider } from 'react-hook-form';
 import { Button } from '../../components/ui/button/Button';
-import { MdOutlineClose, MdSave, MdShare } from 'react-icons/md';
+import { MdOutlineClose, MdSave } from 'react-icons/md';
+import { FaShare } from 'react-icons/fa';
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
 import { GoPlus } from 'react-icons/go';
 import BasicInformation from '../../components/ui/employee/create-employee/BasicInformation';
@@ -61,14 +62,14 @@ const CreateEmployee = () => {
         <form onSubmit={methods.handleSubmit(onSubmit)}>
           <div className="flex items-center justify-between gap-5 mb-4">
             <h2 className="text-xl text-dark-text font-libre font-semibold">
-              Employee Registration
+              Create Employee
             </h2>
             <div className="relative">
               <div className="flex items-center gap-2">
                 <Button
                   variant="secondary"
                   size="sm"
-                  leftIcon={<MdShare size={16} />}
+                  leftIcon={<FaShare size={14} />}
                   className="font-mulish text-sm font-normal py-2 rounded-full mr-2"
                   onClick={() =>
                     copyToClipboard(
@@ -127,7 +128,7 @@ const CreateEmployee = () => {
             <div className="border border-border col-span-1 row-span-2 rounded-2xl p-4 overflow-hidden h-full">
               <Experience />
             </div>
-            <div className="border border-border col-span-1 row-span-1 rounded-2xl p-4 overflow-hidden h-full">
+            <div className="border border-border col-span-1 row-span-2 rounded-2xl p-4 overflow-hidden h-full">
               <div>
                 <div className="flex items-center justify-between mb-8">
                   <h2 className="text-xl font-semibold text-dark">Documents</h2>
@@ -142,7 +143,30 @@ const CreateEmployee = () => {
                 </div>
               </div>
             </div>
-            <div className="border border-border col-span-1 row-span-1 rounded-2xl  p-4 overflow-hidden h-full">
+            <div className="border border-border col-span-1 row-span-1 rounded-2xl p-4 overflow-hidden h-full">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h2 className="text-xl font-semibold text-dark mb-4">
+                    Education
+                  </h2>
+                  <div>
+                    <div className="flex items-center gap-5">
+                      <button
+                        type="button"
+                        className="bg-[#1F74EC] text-[#fff] flex items-center gap-2 p-2.5 rounded-full hover:bg-[#1F74EC]/80 transition-all duration-300 ease-linear cursor-pointer"
+                        // onClick={() => setIsExperienceOpen(!isExperienceOpen)}
+                      >
+                        <GoPlus size={20} />
+                      </button>
+                      <p className="text-dark font-libre font-medium text-lg">
+                        Add Education
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="border border-border col-span-1 row-span-1 rounded-2xl p-4 overflow-hidden h-full">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-xl font-semibold text-dark">Skills</h2>
