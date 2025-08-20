@@ -1,5 +1,5 @@
 // components/ui/FormInput.tsx
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   useFormContext,
   Controller,
@@ -30,6 +30,7 @@ export const FormInput = <T extends FieldValues>({
   iconRight,
   className,
 }: FormInputProps<T>) => {
+  const inputRef = useRef<HTMLInputElement | null>(null);
   // Get context from parent if control not explicitly passed
   const {
     control: contextControl,
@@ -37,6 +38,10 @@ export const FormInput = <T extends FieldValues>({
   } = useFormContext<T>();
 
   const error = errors?.[name]?.message as string;
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   return (
     <div className="space-y-1 w-full">
@@ -58,11 +63,12 @@ export const FormInput = <T extends FieldValues>({
             <input
               {...field}
               id={name}
+              ref={inputRef}
               type={type}
               placeholder={placeholder}
               autoComplete="off"
               className={cn(
-                'w-full px-3 py-2 text-[#343942] font-mulish text-sm border border-border rounded-xl h-[2.5rem] transition-all duration-300 ease-linear focus:outline-none focus:ring focus:ring-active focus:border-active',
+                'w-full px-3 py-2.5 text-[#343942] placeholder:text-[#A6A6A6] font-mulish text-sm border border-border rounded-xl transition-all duration-300 ease-linear focus:outline-none focus:ring focus:ring-active focus:border-active',
                 iconLeft ? 'pl-10' : '',
                 error && 'border-red-500',
                 className

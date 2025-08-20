@@ -41,8 +41,20 @@ const EmailVerificationComponent: React.FC<Props> = ({ setActiveScreen }) => {
 
   const handleContinue = () => {
     const otpValue = otp.join('');
+
+    const otpNumber = '232323';
+    if (!otpValue) {
+      toast.error('Enter OTP to continue');
+      return;
+    }
+
     if (otpValue.length !== 6) {
       toast.error('Incomplete Otp');
+      return;
+    }
+
+    if (otpValue !== otpNumber) {
+      toast.error('Incorrect Otp!');
       return;
     }
     // Handle verification logic here

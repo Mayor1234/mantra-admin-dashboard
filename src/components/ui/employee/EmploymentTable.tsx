@@ -1,12 +1,11 @@
 import { type ReactNode } from 'react';
 import Table from '../table/Table';
-// import { FaPhoneAlt } from 'react-icons/fa';
+// import { FaPhoneAlt } from 'react-icons/fa';npm e
 import { formatStatusColor } from '../../../shared/helper/formatStatus';
 import Pagination from '../pagination/Pagination';
 import { FormProvider, useForm, useWatch } from 'react-hook-form';
 import { FormCheckbox } from '../form';
 import { employees, type Employee } from '../../../constants/index';
-
 type TableColumn<T> = {
   key: keyof T;
   label: string | ReactNode;
