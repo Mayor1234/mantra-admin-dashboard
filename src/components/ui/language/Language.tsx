@@ -46,7 +46,7 @@ const LanguageDropdown = () => {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute w-44 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+        <div className="absolute w-44 top-full left-0 right-0 mt-1 bg-white border border-border rounded-lg shadow-lg z-50">
           <div className="py-1">
             <div className="px-4 py-2 text-sm text-gray-500 font-medium border-b border-gray-100">
               Select Language

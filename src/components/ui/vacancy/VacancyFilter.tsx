@@ -121,10 +121,20 @@ const VacancyFilter = () => {
   return (
     <div>
       <div className="flex items-center justify-between mb-5 px-3">
-        <Button variant="secondary" size="sm" leftIcon={<CiImport size={14} />}>
+        <Button
+          variant="secondary"
+          size="sm"
+          leftIcon={<CiImport size={14} />}
+          className="py-2"
+        >
           Import
         </Button>
-        <Button variant="primary" size="sm" leftIcon={<GoPlus size={14} />}>
+        <Button
+          variant="primary"
+          size="sm"
+          leftIcon={<GoPlus size={14} />}
+          className="py-2"
+        >
           Add Vacancy
         </Button>
       </div>

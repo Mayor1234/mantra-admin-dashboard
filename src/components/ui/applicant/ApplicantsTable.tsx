@@ -2,7 +2,7 @@ import { FormProvider, useForm, useWatch } from 'react-hook-form';
 import Pagination from '../pagination/Pagination';
 import Table from '../table/Table';
 import { FormCheckbox } from '../form';
-import { MdEmail } from 'react-icons/md';
+// import { MdEmail } from 'react-icons/md';
 import { FaStar } from 'react-icons/fa';
 import type { ReactNode } from 'react';
 
@@ -223,7 +223,7 @@ const ApplicantsTable = () => {
       render: (value) =>
         typeof value === 'string' ? (
           <div className="flex items-center gap-2">
-            <MdEmail className="text-icon" />
+            {/* <MdEmail className="text-icon" /> */}
             <p className="text-dark font-medium font-libre text-sm">{value}</p>
           </div>
         ) : null,

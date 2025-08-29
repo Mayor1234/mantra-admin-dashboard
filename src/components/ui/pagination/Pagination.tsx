@@ -37,19 +37,25 @@ const Pagination = () => {
               Show 8
             </Button>
             {isPickerOpen && (
-              <div className="absolute right-0 -left-14 -top-10 h-24 w-full bg-[#f4f5f7] rounded-md">
+              <div className="absolute right-0 -left-14 -top-10 h-24 w-28 bg-white rounded-md">
                 <div className="border border-border h-full rounded-md overflow-auto text-dark">
-                  <p className="py-1 px-3 transition-all duration-300 ease-linear hover:bg-active/50">
+                  <p className="w-full py-1 px-3 text-left transition-all duration-150 ease-linear hover:bg-light-text cursor-pointer">
                     Show 8
                   </p>
-                  <p className="py-1 px-3 transition-all duration-300 ease-linear hover:bg-active/50">
+                  <p className="w-full py-1 px-3 text-left transition-all duration-150 ease-linear hover:bg-light-text cursor-pointer">
                     Show 16
                   </p>
-                  <p className="py-1 px-3 transition-all duration-300 ease-linear hover:bg-active/50">
+                  <p className="w-full py-1 px-3 text-left transition-all duration-150 ease-linear hover:bg-light-text cursor-pointer">
                     Show 24
                   </p>
                 </div>
               </div>
+            )}
+            {isPickerOpen && (
+              <div
+                className="fixed inset-0 z-40"
+                onClick={() => setIsPickerOpen(false)}
+              />
             )}
           </div>
         </div>

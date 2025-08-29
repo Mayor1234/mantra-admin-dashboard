@@ -15,7 +15,7 @@ export default function DashboardLayout() {
       {/* Main content */}
       <div className="flex-1 flex flex-col">
         {/* Header */}
-        <header className="h-14 flex items-center justify-between px-4 my-2 bg-white">
+        <header className="h-20 flex items-center justify-between px-5 bg-white">
           <button
             className="sm:hidden"
             onClick={() => setIsSidebarOpen((prev) => !prev)}
@@ -34,7 +34,7 @@ export default function DashboardLayout() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.3 }}
-          className="p-4 overflow-y-auto flex-1"
+          className="p-5 overflow-y-auto flex-1"
         >
           <Outlet />
         </motion.main>
